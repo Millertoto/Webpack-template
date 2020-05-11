@@ -4,12 +4,40 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Coding Template</title>
   <link rel="stylesheet" type="text/css" href="bundle.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <h1>Webpack - TypeScript - Scss</h1>
-  <h2>TypeScript Hello World</h2>  
-  <div id="content"></div>
+  <h1>
+    Books
+  </h1>
+  <div id="app">
+    <input type="isbn13" v-model.number="isbn13">
+    
+    <button id="all" v-on:click="getAllBooks">get All Books</button>
+    <ul v-if=Books.length>
+      <li v-for="book in Books">
+        <p>
+          Isbn13:
+          {{book.isbn13}}
+        </p>
+        <h3>
+          Titel:
+          {{book.titel}}
+        </h3>
+        <p>
+          Forfatter:
+          {{book.forfatter}}
+        </p>
+        <p>
+          Sidetal:
+          {{book.sidetal}}
+        </p>
+      </li>
+    </ul>
+  </div>
     
   <script src="bundle.js"></script>
 </body>
